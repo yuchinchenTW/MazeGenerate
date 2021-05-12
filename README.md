@@ -19,10 +19,9 @@ how to use it:
         }
         maze.maze_eraseblank();
 
-        System.out.println(maze.count_O());
+      
        maze.print_maze();
         System.out.println(maze.out());
         
 
-        //char c = 0x2588;//aka 8706 in decimal. 
-        //  System.out.println(c);
+      
