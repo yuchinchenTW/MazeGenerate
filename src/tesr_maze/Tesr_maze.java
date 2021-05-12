@@ -25,23 +25,19 @@ public class Tesr_maze {
         while (maze.count_O() < 26700) {
             System.out.println("retry");
             maze.resetRecur_count();
-         
-            
-            for(int i=0;i<17;i++){
+
+            for (int i = 0; i < 17; i++) {
                 maze.resetRecur_count();
                 maze.findpath();
             }
-            
+
         }
         maze.maze_eraseblank();
 
         System.out.println(maze.count_O());
-       maze.print_maze();
+        maze.print_maze();
         System.out.println(maze.out());
-        
 
-        //char c = 0x2588;//aka 8706 in decimal. 
-        //  System.out.println(c);
     }
 
     public static int returnZero(int anyNumber) {
