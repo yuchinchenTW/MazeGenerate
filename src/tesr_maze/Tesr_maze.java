@@ -25,7 +25,7 @@ public class Tesr_maze {
         while (maze.count_O() < 26700) {
             System.out.println("retry");
             maze.resetRecur_count();
-            maze.reset_maze();
+         
             
             for(int i=0;i<17;i++){
                 maze.resetRecur_count();
