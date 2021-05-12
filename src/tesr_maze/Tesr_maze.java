@@ -22,7 +22,7 @@ public class Tesr_maze {
         Maze maze = new Maze(200);
 
         maze.findpath();
-        while (maze.count_O() < 26700) {
+        while (maze.count_O() < 26500) {
             System.out.println("retry");
             maze.resetRecur_count();
 
