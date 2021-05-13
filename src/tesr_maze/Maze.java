@@ -76,8 +76,8 @@ public class Maze {
             int ran_iny= ran.nextInt(y-3);
             cursor_x=ran_inx;
             cursor_y=ran_iny;
-            System.out.println(cursor_x);
-            System.out.println(cursor_y);
+          //  System.out.println(cursor_x);
+          //  System.out.println(cursor_y);
             
             return null;
         }
