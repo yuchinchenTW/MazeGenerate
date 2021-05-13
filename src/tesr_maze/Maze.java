@@ -29,7 +29,7 @@ public class Maze {
     private int whenitstuck = 0;
     private boolean temp = false;
     private int old_O = 0;
-    private int count=0;
+    private int count = 0;
 
     public Maze(int dimension) {
         this(dimension, dimension);
@@ -71,14 +71,37 @@ public class Maze {
 
         recur_count++;
         if (recur_count >= 7000) {
-            
-            int ran_inx= x-4-ran.nextInt(5);
-            int ran_iny= ran.nextInt(y-3);
-            cursor_x=ran_inx;
-            cursor_y=ran_iny;
-          //  System.out.println(cursor_x);
-          //  System.out.println(cursor_y);
-            
+
+            int ran_inx = x - 4 - ran.nextInt(5);
+            int ran_iny = ran.nextInt(y - 3);
+            cursor_x = ran_inx;
+            cursor_y = ran_iny;
+            for (int i = 0; i < x; i++) {
+                if (maze[cursor_x][cursor_y] != blank) {
+                    ran_inx = x - 4 - ran.nextInt(5);
+                    ran_iny = ran.nextInt(y - 3);
+                    cursor_x = ran_inx;
+                    cursor_y = ran_iny;
+                    if (i >= x - 2) {
+                        for (int t = 0; t < x; t++) {
+                            ran_inx = ran.nextInt(x - 3);
+                            ran_iny = ran.nextInt(y - 3);
+                            cursor_x = ran_inx;
+                            cursor_y = ran_iny;
+                            if (maze[cursor_x][cursor_y] == blank) {
+                                return null;
+                            }
+                        }
+
+                    }
+
+                } else {
+                    i = x;
+                }
+            }
+            //  System.out.println(cursor_x);
+            //  System.out.println(cursor_y);
+
             return null;
         }
 
@@ -89,15 +112,14 @@ public class Maze {
             setpath();
             return findpath();
         }
-        
 
         int num = ran.nextInt(33339);
         int out = num % 4;
-        if (cursor_x > x ) {
-            return findpath();
+        if (cursor_x >= x) {
+            return null;
         }
-        if (cursor_y > y ) {
-            return findpath();
+        if (cursor_y >= y) {
+            return null;
         }
         if (out == 0) {
             if (cursor_y >= y) {
@@ -257,14 +279,14 @@ public class Maze {
             }
 
         }
-        if(this.count<10){
+        if (this.count < 10) {
             temp = false;
         }
 
         if (this.count_O() > this.whenitstuck && temp == false) {
             for (int i = 0; i < this.x - 1; i++) {
                 for (int t = 0; t < this.y - 1; t++) {
-                       
+
                     if (maze[i][t] == this.blank && maze[i + 1][t] == this.road) {
                         // System.out.println(1);
                         maze[i][t] = this.road;
@@ -313,7 +335,7 @@ public class Maze {
 
     public void print_maze() {
         System.out.println(cursor_x + " " + cursor_y);
-        out="";
+        out = "";
         for (int i = 0; i < x; i++) {
             for (int t = 0; t < y; t++) {
                 if (t != y - 1) {
@@ -473,7 +495,7 @@ public class Maze {
         cursor_y = 1;
         recur_count = 0;
         temp = false;
-        this.old_O=0;
+        this.old_O = 0;
     }
 
     public void maze_eraseblank() {
