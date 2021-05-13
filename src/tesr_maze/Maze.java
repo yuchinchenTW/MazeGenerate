@@ -84,10 +84,10 @@ public class Maze {
 
         int num = ran.nextInt(33339);
         int out = num % 4;
-        if (cursor_x >= x - 1) {
+        if (cursor_x > x ) {
             return null;
         }
-        if (cursor_y >= y - 1) {
+        if (cursor_y > y ) {
             return null;
         }
         if (out == 0) {
@@ -304,6 +304,7 @@ public class Maze {
 
     public void print_maze() {
         System.out.println(cursor_x + " " + cursor_y);
+        out="";
         for (int i = 0; i < x; i++) {
             for (int t = 0; t < y; t++) {
                 if (t != y - 1) {
