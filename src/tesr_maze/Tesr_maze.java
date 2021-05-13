@@ -22,13 +22,16 @@ public class Tesr_maze {
         Maze maze = new Maze(100);
         int set = 0;
         // maze.findpath();
+       // maze.setCursor(98, 98);
         while (maze.count_O() <6000) {
 
             //maze.resetRecur_count();
             // maze.findpath();
-            for (int i = 0; i < 6; i++) {
+            for (int i = 0; i < 7; i++) {
                 maze.resetRecur_count();
                 maze.findpath();
+                maze.print_maze();
+                System.out.println(maze.out());
                 
             }
             System.out.println(maze.count_O());
@@ -37,6 +40,7 @@ public class Tesr_maze {
             
             if (maze.count_O() < 1000) {
                 maze = new Maze(100);
+            //    maze.setCursor(98, 98);
               //  set = 0;
                 maze.reset_maze();
                 maze.resetRecur_count();

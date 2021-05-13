@@ -71,6 +71,14 @@ public class Maze {
 
         recur_count++;
         if (recur_count >= 7000) {
+            
+            int ran_inx= x-4-ran.nextInt(5);
+            int ran_iny= ran.nextInt(y-3);
+            cursor_x=ran_inx;
+            cursor_y=ran_iny;
+            System.out.println(cursor_x);
+            System.out.println(cursor_y);
+            
             return null;
         }
 
@@ -81,20 +89,21 @@ public class Maze {
             setpath();
             return findpath();
         }
+        
 
         int num = ran.nextInt(33339);
         int out = num % 4;
         if (cursor_x > x ) {
-            return null;
+            return findpath();
         }
         if (cursor_y > y ) {
-            return null;
+            return findpath();
         }
         if (out == 0) {
             if (cursor_y >= y) {
-                return null;
+                return findpath();
             } else if (cursor_x >= x) {
-                return null;
+                return findpath();
             }
             if (maze[cursor_x + 1][cursor_y] == block) {
                 return findpath();
@@ -129,9 +138,9 @@ public class Maze {
 
         } else if (out == 1) {
             if (cursor_y >= y) {
-                return null;
+                return findpath();
             } else if (cursor_x >= x) {
-                return null;
+                return findpath();
             } else if (cursor_x <= 0) {
                 return findpath();
             }
@@ -169,9 +178,9 @@ public class Maze {
 
         } else if (out == 2) {
             if (cursor_y >= y) {
-                return null;
+                return findpath();
             } else if (cursor_x >= x) {
-                return null;
+                return findpath();
             } else if (cursor_y <= 0) {
                 return findpath();
             }
@@ -210,9 +219,9 @@ public class Maze {
 
         } else if (out == 3) {
             if (cursor_y >= y) {
-                return null;
+                return findpath();
             } else if (cursor_x >= x) {
-                return null;
+                return findpath();
             }
             if (maze[cursor_x][cursor_y + 1] == block) {
                 return findpath();
@@ -298,7 +307,7 @@ public class Maze {
 
         }
 
-        return null;
+        return findpath();
 
     }
 
