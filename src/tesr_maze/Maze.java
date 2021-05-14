@@ -71,12 +71,7 @@ public class Maze {
         
         recur_count++;
         
-         if (cursor_x >= x-1||cursor_x <= 0) {
-            return null;
-        }
-        if (cursor_y >= y-1||cursor_y <= 0) {
-            return null;
-        }
+        
         if (recur_count >= 7000) {
 
             int ran_inx = x - 4 - ran.nextInt(5);
@@ -110,6 +105,12 @@ public class Maze {
             //  System.out.println(cursor_y);
 
             return null;
+        }
+         if (cursor_x >= x||cursor_x <= 0) {
+            return findpath();
+        }
+        if (cursor_y >= y||cursor_y <= 0) {
+            return findpath();
         }
 
         if (maze[cursor_x + 1][cursor_y] != blank
