@@ -68,11 +68,10 @@ public class Maze {
     }
 
     public Integer findpath() throws IOException, InterruptedException {
-        
+
         recur_count++;
-        
-        
-        if (recur_count >= 7000) {
+
+        if (recur_count >= 8000) {
 
             int ran_inx = x - 4 - ran.nextInt(5);
             int ran_iny = ran.nextInt(y - 3);
@@ -82,14 +81,17 @@ public class Maze {
                 if (maze[cursor_x][cursor_y] != blank) {
                     ran_inx = x - 4 - ran.nextInt(5);
                     ran_iny = ran.nextInt(y - 3);
-                    cursor_x = ran_inx;
-                    cursor_y = ran_iny;
+                    if (maze[ran_inx][ran_iny] == blank) {
+                        cursor_x = ran_inx;
+                        cursor_y = ran_iny;
+                        return null;
+                    }
                     if (i >= x - 2) {
                         for (int t = 0; t < x; t++) {
                             ran_inx = ran.nextInt(x - 3);
                             ran_iny = ran.nextInt(y - 3);
-                            cursor_x = ran_inx;
-                            cursor_y = ran_iny;
+                            //cursor_x = ran_inx;
+                            //cursor_y = ran_iny;
                             if (maze[cursor_x][cursor_y] == blank) {
                                 return null;
                             }
@@ -106,10 +108,10 @@ public class Maze {
 
             return null;
         }
-         if (cursor_x >= x||cursor_x <= 0) {
+        if (cursor_x >= x || cursor_x <= 0) {
             return findpath();
         }
-        if (cursor_y >= y||cursor_y <= 0) {
+        if (cursor_y >= y || cursor_y <= 0) {
             return findpath();
         }
 
@@ -123,7 +125,7 @@ public class Maze {
 
         int num = ran.nextInt(33339);
         int out = num % 4;
-       
+
         if (out == 0) {
             if (cursor_y >= y) {
                 return findpath();
