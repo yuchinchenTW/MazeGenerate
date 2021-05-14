@@ -19,15 +19,15 @@ public class Tesr_maze {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException, InterruptedException {
-        Maze maze = new Maze(200);
+        Maze maze = new Maze(70);
         int set = 0;
         // maze.findpath();
        // maze.setCursor(98, 98);
-        while (maze.count_O() <26800) {
+        while (maze.count_O() <3210) {
 
             //maze.resetRecur_count();
             // maze.findpath();
-            for (int i = 0; i < 8; i++) {
+            for (int i = 0; i < 3; i++) {
                 maze.resetRecur_count();
                 maze.findpath();
               //  maze.print_maze();
@@ -35,11 +35,11 @@ public class Tesr_maze {
                 
             }
             System.out.println(maze.count_O());
-                maze.print_maze();
-                System.out.println(maze.out());
+              //  maze.print_maze();
+              //  System.out.println(maze.out());
                // System.out.flush();
             
-            if (maze.count_O() < 2555) {
+            if (maze.count_O() < 155) {
                 maze = new Maze(200);
             //    maze.setCursor(98, 98);
               //  set = 0;

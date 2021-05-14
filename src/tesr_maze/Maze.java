@@ -68,8 +68,15 @@ public class Maze {
     }
 
     public Integer findpath() throws IOException, InterruptedException {
-
+        
         recur_count++;
+        
+         if (cursor_x >= x-1||cursor_x <= 0) {
+            return null;
+        }
+        if (cursor_y >= y-1||cursor_y <= 0) {
+            return null;
+        }
         if (recur_count >= 7000) {
 
             int ran_inx = x - 4 - ran.nextInt(5);
@@ -115,12 +122,7 @@ public class Maze {
 
         int num = ran.nextInt(33339);
         int out = num % 4;
-        if (cursor_x >= x) {
-            return null;
-        }
-        if (cursor_y >= y) {
-            return null;
-        }
+       
         if (out == 0) {
             if (cursor_y >= y) {
                 return findpath();
