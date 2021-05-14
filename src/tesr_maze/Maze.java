@@ -92,7 +92,9 @@ public class Maze {
                             ran_iny = ran.nextInt(y - 3);
                             //cursor_x = ran_inx;
                             //cursor_y = ran_iny;
-                            if (maze[cursor_x][cursor_y] == blank) {
+                            if (maze[ran_inx][ran_iny] == blank) {
+                                cursor_x = ran_inx;
+                                cursor_y = ran_iny;
                                 return null;
                             }
                         }

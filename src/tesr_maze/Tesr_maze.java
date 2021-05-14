@@ -23,7 +23,7 @@ public class Tesr_maze {
         int set = 0;
         // maze.findpath();
        // maze.setCursor(98, 98);
-        while (maze.count_O() <678300) {
+        while (maze.count_O() <678200) {
 
             //maze.resetRecur_count();
             // maze.findpath();
